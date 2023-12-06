@@ -118,5 +118,9 @@ void copyWorld(int source[HEIGHT][WIDTH], int destination[HEIGHT][WIDTH]) {
 
 // sleep for the specified number of seconds
 void usleepSeconds(int seconds) {
-    usleep(seconds * MICROSECONDS_PER_SECOND);
+    struct timespec sleepTime;
+    sleepTime.tv_sec = seconds;
+    sleepTime.tv_nsec = 0;
+
+    nanosleep(&sleepTime, NULL);
 }
