@@ -1,9 +1,9 @@
-#include "game_of_life.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <getopt.h>
 #include <time.h>
+#include "game_of_life.h"
 
 int main(int argc, char *argv[]) {
     const char *inputFile = NULL;

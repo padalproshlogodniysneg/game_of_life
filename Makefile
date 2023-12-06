@@ -6,7 +6,10 @@ BUILD_DIR = build
 EXECUTABLE = $(BUILD_DIR)/game_of_life
 INIT_FILES = $(wildcard *.txt)
 
-all: $(EXECUTABLE)
+all: create_build_dir $(EXECUTABLE)
+
+create_build_dir:
+	mkdir -p $(BUILD_DIR)
 
 $(EXECUTABLE): $(BUILD_DIR)/main.o $(BUILD_DIR)/game_of_life.o
 	$(CC) -o $@ $^
@@ -21,3 +24,4 @@ clean:
 	rm -f $(BUILD_DIR)/*.o $(EXECUTABLE)
 
 rebuild: clean all
+ 
